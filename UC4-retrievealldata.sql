@@ -6,3 +6,6 @@ insert into employee_payroll(id,name,salary,start_date) values
 (3,'Ankita',10000.0,'2020-05-13'),
 (4,'Tanvi',30000.0,'2020-08-19');
 select * from empoyee_payroll;
+
+--UC4 Retrieve all data
+select * from employee_payroll
