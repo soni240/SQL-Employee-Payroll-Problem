@@ -1,7 +1,7 @@
-------- UC 9: Rename Salary to Basic Pay and Add Deduction,Taxable pay, Income Pay , Netpay -------
+---- UC 9: Rename Salary to Basic Pay and Add Deduction,Taxable pay, Income Pay , Netpay 
 
-EXEC sp_RENAME 'EmployeePayroll.Basic Pay' , 'BasicPay', 'COLUMN'
-Alter table EmployeePayroll
+EXEC sp_RENAME 'EmpoyeePayroll.Basic Pay' , 'BasicPay', 'COLUMN'
+Alter table employee_payroll
 add Deduction float,TaxablePay float, IncomeTax float,NetPay float;
 Update EmployeePayroll 
 set Deduction=1000
@@ -9,16 +9,18 @@ where Gender='F';
 Update EmployeePayroll 
 set Deduction=2000
 where Gender='M';
-update EmpoyeePayroll
+update EmployeePayroll
 set NetPay=(BasicPay - Deduction)
-update EmpoyeePayroll
+update EmployeePayroll
 set TaxablePay=0,IncomeTax=0
 select * from EmpoyeePayroll;
-------- UC 10: Adding another Value for Rujula in Editing Department -------
 
-Insert into Empoyee_Payroll(name,BasicPay,StartDate,Address,EmployeePhoneNumber,EmployeeDepartment) values ('Gayathri',250000,'2019-04-20','Chennai,TN','9600054540','Editing');
-select * from empoyee_payroll;
-------- UC 11: Implement the ER Diagram into Payroll Service DB -------
+------- UC 10: Adding another Value for ovi in Editing Department -------
+
+Insert into EmployeePayroll(name,BasicPay,StartDate,Address,EmployeePhoneNumber,EmployeeDepartment) values ('Tanvi',250000,'2019-04-20','Chennai,TN','9600054540','Editing');
+select * from EmployeePayroll;
+
+------ UC 11: Implement the ER Diagram into Payroll Service DB -------
 --Create Table for Company
 Create Table Company
 (CompanyID int identity(1,1) primary key,
@@ -35,7 +37,7 @@ CompanyIdentity int,
 EmployeeName varchar(200),
 EmployeePhoneNumber bigInt,
 EmployeeAddress varchar(200),
-StartDate date,
+Start_date date,
 Gender char,
 Foreign key (CompanyIdentity) references Company(CompanyID)
 )
