@@ -8,4 +8,12 @@ insert into employee_payroll(id,name,salary,start_date) values
 select * from empoyee_payroll;
 
 --UC4 Retrieve all data
+
 select * from employee_payroll
+
+
+---- UC 5: Select Query using Cast() an GetDate()
+
+select salary from employee_payroll where name='Tanvi';
+select salary from employee_payroll where start_date between Cast('2020-12-20' as Date) and GetDate();
+
