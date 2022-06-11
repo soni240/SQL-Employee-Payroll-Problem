@@ -33,3 +33,23 @@ select Avg(salary) as "AverageSalary",gender from employee_payroll group by gend
 select Min(salary) as "MinimumSalary",gender from employee_payroll group by gender;
 select Max(salary) as "MaximumSalary",gender from employee_payroll group by gender;
 select count(salary) as "CountSalary",gender from employee_payroll group by gender;
+
+------- UC 8: Add column department,PhoneNumber and Address -------
+Alter table empoyee_payroll
+add EmployeePhoneNumber BigInt,EmployeeDepartment varchar(200) not null default 'Publish',Address varchar(200) default 'Not Provided';
+
+Update employee_payroll 
+set EmployeePhoneNumber='9842905050',EmployeeDepartment='Editing',Address='Bangalore,Karnataka'
+where name='Ankita';
+
+Update employee_payroll 
+set EmployeePhoneNumber='10987252525',Address='Arizona,US'
+where name ='Rakesh';
+
+Update employee_payroll 
+set EmployeePhoneNumber='9600054540',EmployeeDepartment='Management',Address='Chennai,TN'
+where name ='Tanvi';
+
+Update employee_payroll 
+set EmployeePhoneNumber='8715605050',Address='Bareilly,UP'
+where name ='John';
